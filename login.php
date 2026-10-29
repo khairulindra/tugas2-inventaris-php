@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error['password'] = t('password_kosong');
     }
 
-    // Kalau lengkap, cek ke database
     if (empty($error)) {
         $stmt = mysqli_prepare($koneksi, "SELECT id, password, nama_lengkap FROM users WHERE username = ?");
         mysqli_stmt_bind_param($stmt, "s", $username);
